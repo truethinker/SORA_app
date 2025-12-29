@@ -25,12 +25,64 @@ LUISA_URL = os.environ.get("LUISA_URL")
 
 # LUISA → conservative density map (hab/km²). Extend as needed.
 LUISA_DENSITY_MAP = {
-    1: 50,      # Continuous urban fabric
-    2: 200,     # Dense discontinuous urban fabric
-    3: 100,     # Medium discontinuous urban fabric
-    4: 50,      # Low discontinuous urban fabric
-    5: 20,      # Industrial/commercial
-    6: 5000,    # Sport/leisure facilities (example)
+{
+    # Urban fabric
+    1111: 5000,  # High density urban fabric
+    1121: 2500,  # Medium density urban fabric
+    1122: 1000,  # Low density urban fabric
+    1123: 300,   # Isolated or very low density urban fabric
+    1130: 200,   # Urban vegetation (aún en entorno urbano)
+    1410: 200,   # Green urban areas
+    1421: 800,   # Sport and leisure green (eventos / afluencia)
+    1422: 1200,  # Sport and leisure built-up
+
+    # Industrial / transport / infrastructure
+    1210: 600,   # Industrial or commercial units
+    1221: 200,   # Road and rail networks and associated land
+    1222: 1200,  # Major stations
+    1230: 600,   # Port areas
+    1241: 300,   # Airport areas
+    1242: 1500,  # Airport terminals
+
+    # Extractive / degraded / construction
+    1310: 50,    # Mineral extraction sites
+    1320: 10,    # Dump sites
+    1330: 100,   # Construction sites
+
+    # Agriculture (baja densidad)
+    2110: 20,    # Non irrigated arable land
+    2120: 20,    # Permanently irrigated land
+    2130: 10,    # Rice fields
+    2210: 15,    # Vineyards
+    2220: 15,    # Fruit trees and berry plantations
+    2230: 15,    # Olive groves
+    2310: 15,    # Pastures
+    2410: 15,    # Annual crops associated with permanent crops
+    2420: 15,    # Complex cultivation patterns
+    2430: 10,    # Land principally occupied by agriculture
+    2440: 10,    # Agro-forestry areas
+
+    # Forest / natural (muy baja / casi 0, pero conservativo mínimo)
+    3110: 5,     # Broad-leaved forest
+    3120: 5,     # Coniferous forest
+    3130: 5,     # Mixed forest
+    3210: 5,     # Natural grassland
+    3220: 2,     # Moors and heathland
+    3230: 2,     # Sclerophyllous vegetation
+    3240: 2,     # Transitional woodland shrub
+    3310: 2,     # Beaches, dunes and sand plains
+    3320: 1,     # Bare rock
+    3330: 1,     # Sparsely vegetated areas
+    3340: 1,     # Burnt areas
+    3350: 0,     # Glaciers and perpetual snow
+
+    # Wetlands / water
+    4000: 0,     # Wetlands
+    5110: 0,     # Water courses
+    5120: 0,     # Water bodies
+    5210: 0,     # Coastal lagoons
+    5220: 0,     # Estuaries
+    5230: 0,     # Sea and ocean
 }
 
 def _download_if_missing(path: pathlib.Path, url: str | None) -> None:
