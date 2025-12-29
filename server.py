@@ -25,7 +25,6 @@ LUISA_URL = os.environ.get("LUISA_URL")
 
 # LUISA → conservative density map (hab/km²). Extend as needed.
 LUISA_DENSITY_MAP = {
-{
     # Urban fabric
     1111: 5000,  # High density urban fabric
     1121: 2500,  # Medium density urban fabric
